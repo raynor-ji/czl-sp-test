@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+        >
+
+<mapper namespace="com.czl.test.db.UserMapper">
+    <select id="findAll" resultType="com.czl.test.db.UserDTO">
+        select
+            id, age, name,
+            instant_datetime as idt,
+            instant_datetime as ildt,
+            local_datetime as ldt,
+            local_datetime as lidt
+        from user;
+    </select>
+
+    <insert id="insert">
+        insert into user (
+            age, name,
+                        instant_datetime, local_datetime
+<!--            dt-->
+        )
+        value (
+            #{age}, #{name},
+                    #{instantDatetime}, #{localDatetime}
+<!--            #{dt}-->
+        )
+    </insert>
+
+</mapper>

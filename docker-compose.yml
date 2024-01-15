@@ -1,0 +1,20 @@
+version: "3"
+services:
+  database:
+    image: mysql
+    container_name: czl
+    environment:
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=cozy_lab
+      - MYSQL_USER=cozy
+      - MYSQL_PASSWORD=cozy
+    ports:
+      - 23306:3306
+    volumes:
+      - ./db/data:/var/lib/mysql
+    networks:
+      - czl_sp_test_networks
+
+networks:	#네트워크 설정
+  czl_sp_test_networks:
